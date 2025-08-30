@@ -1,0 +1,47 @@
+household_energy_consumption_ml/
+│
+├── 📄 README.md                          # Comprehensive project documentation
+├── 📄 requirements.txt                   # Python dependencies
+├── 📄 setup.py                          # Package installation script
+├── 📄 train_models.py                   # Main training script
+├── 📄 predict.py                        # Prediction script
+│
+├── 📂 config/
+│   └── 📄 config.yaml                   # Project configuration
+│
+├── 📂 src/
+│   ├── 📄 __init__.py                   # Package initialization
+│   │
+│   ├── 📂 data_processing/
+│   │   ├── 📄 __init__.py
+│   │   └── 📄 data_loader.py            # Data loading and preprocessing
+│   │
+│   ├── 📂 models/
+│   │   ├── 📄 __init__.py
+│   │   ├── 📄 random_forest_model.py    # Random Forest implementation
+│   │   ├── 📄 lstm_model.py             # LSTM implementation
+│   │   └── 📄 arima_model.py            # ARIMA implementation
+│   │
+│   ├── 📂 evaluation/
+│   │   ├── 📄 __init__.py
+│   │   └── 📄 model_evaluator.py        # Model evaluation and comparison
+│   │
+│   └── 📂 utils/
+│       ├── 📄 __init__.py
+│       └── 📄 helpers.py                # Utility functions
+│
+├── 📂 notebooks/
+│   └── 📄 exploratory_analysis.ipynb    # Interactive data exploration
+│
+├── 📂 tests/
+│   ├── 📄 __init__.py
+│   └── 📄 test_data_loader.py          # Unit tests
+│
+├── 📂 data/                             # Data directories (created at runtime)
+│   ├── 📂 raw/                         # Raw dataset
+│   └── 📂 processed/                   # Preprocessed data
+│
+└── 📂 results/                         # Results directories (created at runtime)
+    ├── 📂 models/                      # Saved models
+    ├── 📂 plots/                       # Generated plots
+    └── 📂 reports/                     # Evaluation reports

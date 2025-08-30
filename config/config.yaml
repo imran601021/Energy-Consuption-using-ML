@@ -1,0 +1,71 @@
+# Project Configuration File
+
+project:
+  name: "ENERGY_CONSUPTION_USING_ML"
+  version: "1.0.0"
+  description: "Machine Learning project for predicting household energy consumption"
+
+data:
+  dataset_url: "https://archive.ics.uci.edu/ml/machine-learning-databases/00235/household_power_consumption.zip"
+  raw_data_path: "data/raw/household_power_consumption.txt"
+  processed_data_path: "data/processed/"
+  train_split: 0.8
+  validation_split: 0.1
+  test_split: 0.1
+
+preprocessing:
+  missing_value_strategy: "forward_fill"  # Options: forward_fill, interpolate, drop
+  scaling_method: "minmax"  # Options: minmax, standard, robust
+  feature_engineering:
+    add_time_features: true
+    add_lag_features: true
+    lag_periods: [1, 7, 30]
+    rolling_window_features: true
+    rolling_windows: [7, 30, 90]
+
+models:
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+    n_jobs: -1
+
+  lstm:
+    sequence_length: 60
+    hidden_units: 50
+    dropout_rate: 0.2
+    epochs: 100
+    batch_size: 32
+    learning_rate: 0.001
+
+  arima:
+    order: [5, 1, 0]
+    seasonal_order: [1, 1, 1, 24]
+
+  xgboost:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    random_state: 42
+
+evaluation:
+  metrics: ["mse", "rmse", "mae", "r2", "mape"]
+  cross_validation_folds: 5
+  time_series_split: true
+
+visualization:
+  figure_size: [12, 8]
+  dpi: 300
+  style: "seaborn"
+  color_palette: "viridis"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_path: "logs/project.log"
+
+paths:
+  models: "results/models/"
+  plots: "results/plots/"
+  reports: "results/reports/"
+  logs: "logs/"
